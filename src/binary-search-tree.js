@@ -7,40 +7,74 @@ const { NotImplementedError } = require('../extensions/index.js');
 * using Node from extensions
 */
 class BinarySearchTree {
-
-  root() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  
+  constructor () {
+    this.arrData = [],
+    this.newObj = {
+      data: 0
+    };    
+  }
+  
+  root() {    
+    if (this.arrData.length === 0) {      
+      return null
+    }   
+    this.newObj.data = this.arrData[0]    
+    return this.newObj 
   }
 
-  add(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  add(data) {
+    this.arrData.push(data)
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+    let element = this.arrData.indexOf(data);
+    if (element !== -1) {      
+      return true
+    } else {      
+      return false
+    }
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+    let element = this.arrData.indexOf(data);
+     if (element !== -1) {      
+      this.newObj.data = this.arrData[element]       
+      return this.newObj
+    } else {      
+      return null
+    }
   }
 
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  remove(data) {
+    let element = this.arrData.indexOf(data);
+    if (element !== -1); {
+      this.arrData.splice(element, 1);
+    } 
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if (this.arrData.length === 0) {
+      return null
+    }
+    let newArr = []
+    newArr = this.arrData.slice();
+    newArr.sort(function(a, b) {
+      return a - b;
+    });    
+    return newArr[0] 
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    if (this.arrData.length === 0) {
+      return null
+    }
+    let newArr = []
+    newArr = this.arrData.slice();
+    newArr.sort(function(a, b) {
+      return a - b;
+    });    
+    return newArr[newArr.length - 1] 
   }
 }
 
